@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Учебный макет сайта каршеринга">
+    <title>РыбкинСпид Про — Поминутная аренда авто</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/originals/c9/a9/e8/c9a9e884dc04734b7befd3a482368e9b.jpg">
+    <style>
+        html, body { min-height: 100%; }
+        body {
+            margin: 0;
+            background-image: url("https://a1.drive-data.ru/721fc6s-960.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: "Times New Roman", Times, serif;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        header, main > section, main > aside {
+            background-color: rgba(255, 255, 255, 0.88);
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 1000px;
+            padding: 28px 36px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        header {
+            text-align: center;
+            padding: 32px 36px 24px;
+        }
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: normal;
+            margin: 0 0 8px;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.15rem;
+            font-style: italic;
+            font-weight: normal;
+            margin: 0 0 16px;
+            color: #333;
+        }
+        header nav {
+            font-size: 1.1rem;
+            border-top: 1px solid #ddd;
+            padding-top: 14px;
+        }
+        header nav a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        header nav a:hover { text-decoration: underline; }
+
+        .main-idea {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.88);
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 1000px;
+            padding: 30px 36px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .main-idea h2 { font-size: 1.7rem; font-weight: normal; margin: 0 0 10px; }
+        .main-idea p { font-size: 1.15rem; margin: 0; color: #333; }
+
+        main > section > h2 {
+            text-align: center;
+            font-size: 1.7rem;
+            font-weight: normal;
+            margin: 0 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        h1, h2, h3, h4, p, li, td, th, label, legend, a { color: #000; }
+        h3 { font-size: 1.3rem; font-weight: bold; margin: 0 0 8px; }
+        h4 { font-size: 1.15rem; font-weight: bold; margin: 24px 0 12px; }
+
+        figure { text-align: center; margin: 16px 0; }
+        figure img { max-width: 100%; height: auto; border-radius: 8px; }
+        figcaption { font-size: 0.95rem; color: #444; margin-top: 6px; }
+
+        table {
+            margin: 0 auto;
+            font-size: 1rem;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+        }
+        th, td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        thead th {
+            background-color: #f0f0f0;
+            border-bottom: 2px solid #999;
+        }
+        tbody tr:nth-child(even) { background-color: #fafafa; }
+
+        .order-btn {
+            display: block;
+            margin: 16px auto 0;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .order-btn:hover { background-color: #333; }
+
+        .order-btn.used {
+            background-color: #999;
+            color: #eee;
+            cursor: not-allowed;
+        }
+        .order-btn.used:hover { background-color: #999; }
+
+        .car-card {
+            text-align: center;
+            margin-bottom: 36px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #ddd;
+        }
+        .car-card:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+        .car-card h3 { font-size: 1.5rem; margin: 0 0 10px; }
+        .car-card figure { margin: 0 0 16px; }
+        .car-card img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        .car-card figcaption { font-size: 0.95rem; color: #555; margin-top: 10px; }
+        .car-card p { font-size: 1.05rem; margin: 10px 0; color: #333; }
+        .car-card .car-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 14px 0;
+        }
+
+        footer {
+            margin: 20px auto;
+            max-width: 1000px;
+            padding: 20px 32px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        footer address {
+            font-size: 1.3rem;
+            font-style: normal;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+        }
+        footer address a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        footer address a:hover { color: #ccc; }
+        footer p {
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+            margin: 0;
+        }
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            border: 1px solid #999;
+            border-radius: 6px;
+            font-family: "Times New Roman", Times, serif;
+            background-color: #fff;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #000;
+        }
+        .form-group input.error { border-color: red; background: #ffecec; }
+
+        .form-buttons { margin-top: 18px; }
+        .form-buttons button {
+            padding: 10px 22px;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-family: "Times New Roman", Times, serif;
+        }
+        button[type="submit"] { background-color: #000; color: #fff; font-weight: bold; }
+        button[type="submit"]:hover { background-color: #333; }
+        .btn-reset { background-color: #000; color: #fff; }
+        .btn-reset:hover { background-color: #333; }
+
+        .form-msg {
+            margin-top: 12px;
+            font-weight: bold;
+            color: green;
+        }
+        .form-msg.error { color: red; }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: #fff;
+            padding: 26px 34px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .modal-box h2,
+        .modal-box p {
+            color: #000;
+        }
+        .modal-close {
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #000;
+            line-height: 1;
+        }
+        .modal-close:hover { color: #d9534f; }
+        .modal-buttons { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+        .btn {
+            padding: 8px 18px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #000;
+            color: #fff;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1rem;
+        }
+        .btn:hover { background: #333; }
+        .btn-danger { background: #d9534f; }
+        .btn-danger:hover { background: #b93f3b; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            header p { font-size: 1rem; }
+            header nav { font-size: 1rem; }
+            .main-idea h2 { font-size: 1.3rem; }
+            .main-idea p { font-size: 1rem; }
+            header, main > section, main > aside { padding: 18px; margin: 12px auto; }
+            footer address { font-size: 1.05rem; }
+            table { display: block; overflow-x: auto; }
+            th, td { padding: 8px 10px; font-size: 0.9rem; }
+            .car-card h3 { font-size: 1.3rem; }
+            .car-card .car-price { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>РыбкинСпид Про</h1>
+        <p>Быстрый каршеринг в твоем городе</p>
+        <nav>
+            <a href="#tariffs">Тарифы</a> |
+            <a href="#cars">Наш автопарк</a> |
+            <a href="#register">Стать водителем</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-idea">
+            <h2>Поминутная аренда авто — просто, быстро, выгодно</h2>
+            <p>Бронируйте автомобиль за минуту, платите только за время поездки
+                и оставляйте машину в любой разрешённой зоне города.</p>
+        </div>
+
+        <section id="cars">
+            <h2>Наш автопарк</h2>
+
+            <article class="car-card">
+                <h3>Chevrolet Impala</h3>
+                <figure>
+                    <img src="https://avatars.mds.yandex.net/i?id=01086cbd7db04cc2eb65346bef3baa2f_l-13217575-images-thumbs&n=13" alt="Chevrolet Impala">
+                    <figcaption>Классический автомобиль 1967 года.</figcaption>
+                </figure>
+                <p>Самый надёжный и востребованный автомобиль автопарка.</p>
+                <p class="car-price">100 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Chevrolet Impala">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Kia Rio</h3>
+                <figure>
+                    <img src="https://avatars.avto.ru/get-autoru-vos/4887817/cbe402de03a9db2d927e5095a8210654/1200x900" alt="Kia Rio">
+                    <figcaption>Надёжный городской седан.</figcaption>
+                </figure>
+                <p class="car-price">25 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Kia Rio">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Hyundai Solaris</h3>
+                <figure>
+                    <img src="https://avatars.avto.ru/get-autoru-vos/2165842/e8c7bd9339a7462bea335a2142d74632/1200x900" alt="Hyundai Solaris">
+                    <figcaption>Экономичный и манёвренный.</figcaption>
+                </figure>
+                <p class="car-price">25 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Hyundai Solaris">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Lada Vesta</h3>
+                <figure>
+                    <img src="https://carsdo.ru/job/CarsDo/photo-gallery/lada/vesta-2-27.jpg" alt="Lada Vesta">
+                    <figcaption>Доступный и простой автомобиль.</figcaption>
+                </figure>
+                <p class="car-price">25 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Lada Vesta">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Volkswagen Polo</h3>
+                <figure>
+                    <img src="https://avatars.avto.ru/get-autoru-vos/2164965/58ca8404be59991d82a02ad655f0197d/1200x900" alt="Volkswagen Polo">
+                    <figcaption>Комфортный и стильный.</figcaption>
+                </figure>
+                <p class="car-price">30 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Volkswagen Polo">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Renault Logan</h3>
+                <figure>
+                    <img src="https://avatars.avto.ru/get-autoru-vos/2181747/b1a9c1a10f92205e1631566f238b43c9/1200x900" alt="Renault Logan">
+                    <figcaption>Проверенная временем классика.</figcaption>
+                </figure>
+                <p class="car-price">25 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Renault Logan">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Skoda Rapid</h3>
+                <figure>
+                    <img src="https://avatars.mds.yandex.net/i?id=82419a2d4c7d130cb16cddee8b5f7e72_l-10246134-images-thumbs&n=13" alt="Skoda Rapid">
+                    <figcaption>Просторный салон и багажник.</figcaption>
+                </figure>
+                <p class="car-price">35 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Skoda Rapid">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Nissan Almera</h3>
+                <figure>
+                    <img src="https://avatars.mds.yandex.net/i?id=42f12caeb3ed0f66df887b4b69ae32de_l-8428826-images-thumbs&n=13" alt="Nissan Almera">
+                    <figcaption>Надёжность и комфорт.</figcaption>
+                </figure>
+                <p class="car-price">35 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Nissan Almera">Арендовать</button>
+            </article>
+
+            <article class="car-card">
+                <h3>Ford Focus</h3>
+                <figure>
+                    <img src="https://avatars.mds.yandex.net/i?id=d15239241a093d5501e1716c74ca1eef_l-3910357-images-thumbs&n=13" alt="Ford Focus">
+                    <figcaption>Динамика и управляемость.</figcaption>
+                </figure>
+                <p class="car-price">40 руб./мин</p>
+                <button type="button" class="order-btn" data-car="Ford Focus">Арендовать</button>
+            </article>
+        </section>
+
+        <section id="tariffs">
+            <h2>Сетка тарифных планов</h2>
+            <p>Стоимость зависит от класса автомобиля и выбранного времени.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Класс авто</th>
+                        <th>Минута поездки</th>
+                        <th>Минута ожидания</th>
+                        <th>Суточный пакет</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chevrolet Impala</td>
+                        <td>100 руб.</td>
+                        <td>25 руб.</td>
+                        <td>30 000 руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Эконом (Kia Rio, Solaris, Vesta, Logan)</td>
+                        <td>25 руб.</td>
+                        <td>10 руб.</td>
+                        <td>8 000 руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Эконом (Volkswagen Polo)</td>
+                        <td>30 руб.</td>
+                        <td>10 руб.</td>
+                        <td>9 000 руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Эконом (Skoda Rapid, Nissan Almera)</td>
+                        <td>35 руб.</td>
+                        <td>12 руб.</td>
+                        <td>10 500 руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Эконом (Ford Focus)</td>
+                        <td>40 руб.</td>
+                        <td>15 руб.</td>
+                        <td>12 000 руб.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Зоны покрытия и парковки на карте:</h4>
+            <div style="position:relative;overflow:hidden;text-align:center;">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9c2436d9cfbbb380a39313f6d590aeb4645f50f22fc87ddcabdd82bbbfaa9c76&amp;source=constructor"
+                        width="1080" height="720" frameborder="0" allowfullscreen="true"
+                        title="Карта зон покрытия — Рязань"
+                        style="position:relative;max-width:100%;height:auto;aspect-ratio:3/2;border-radius:8px;"></iframe>
+            </div>
+        </section>
+
+        <aside>
+            <h3>Важное ограничение по возрасту</h3>
+            <p>Доступ к автомобилям класса «Комфорт» открывается строго для
+                водителей в возрасте от 18 лет и со стажем вождения от 1 года.</p>
+        </aside>
+
+        <section id="register">
+            <h2>Регистрация нового водителя</h2>
+            <form action="#" method="POST" id="regForm" novalidate>
+                <fieldset>
+                    <legend>Личные данные и контакты</legend>
+
+                    <div class="form-group">
+                        <label for="username">Полное имя (ФИО):</label>
+                        <input type="text" id="username" name="username"
+                               placeholder="Рыбкин Владимир Алексеевич" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="useremail">Электронная почта:</label>
+                        <input type="email" id="useremail" name="useremail"
+                               placeholder="wowan1199@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usertel">Номер мобильного телефона:</label>
+                        <input type="tel" id="usertel" name="usertel"
+                               placeholder="+7 (980) 564-93-50" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userurl">Ссылка на профиль Госуслуг (для быстрой проверки):</label>
+                        <input type="url" id="userurl" name="userurl"
+                               placeholder="https://gosuslugi.ru">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Условия и документы</legend>
+
+                    <div class="form-group">
+                        <label for="experience-select">Ваш стаж вождения:</label>
+                        <select id="experience-select" name="experience">
+                            <option value="none">Нет стажа / до 1 года</option>
+                            <option value="normal" selected>От 1 года до 3 лет</option>
+                            <option value="pro">Более 3 лет</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userage">Полных лет (возраст):</label>
+                        <input type="number" id="userage" name="userage"
+                               min="18" max="99" value="21">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Желаемый тип страховки:</label>
+                        <input type="radio" id="ins-std" name="insurance" value="standard" checked>
+                        <label for="ins-std" style="display:inline; font-weight:normal;">Базовая (франшиза при ДТП)</label>
+                        <br>
+                        <input type="radio" id="ins-full" name="insurance" value="full">
+                        <label for="ins-full" style="display:inline; font-weight:normal;">Каско (без ответственности за риски)</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fav-color">Выберите цвет интерфейса приложения:</label>
+                        <input type="color" id="fav-color" name="fav-color" value="#00adb5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="license-date">Дата выдачи вашего первого ВУ:</label>
+                        <input type="date" id="license-date" name="licensedate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doc-file">Загрузите фото ВУ (одним файлом, .pdf / фото):</label>
+                        <input type="file" id="doc-file" name="documents" accept=".pdf, image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Дополнительная информация (например, промокод):</label>
+                        <textarea id="comments" name="comments" rows="3"
+                                  placeholder="Введите код или комментарий..."></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit">Отправить документы на проверку</button>
+                        <button type="reset" class="btn-reset">Очистить форму</button>
+                    </div>
+                    <p class="form-msg" id="formMsg"></p>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            Служба поддержки: <a href="mailto:wowan1199@gmail.com">wowan1199@gmail.com</a> |
+            Телефон: <a href="tel:+79805649350">+7-980-564-93-50</a>
+        </address>
+        <p>&copy; 2026 ООО "РыбкинСпид Оператор". Все права защищены.</p>
+
+        <div class="modal-overlay" id="driverModal">
+            <div class="modal-box" id="modalContent">
+                <button type="button" class="modal-close" id="btnClose">×</button>
+                <h2 id="modalTitle">Проверка документов</h2>
+                <p id="modalText">вассап мабой права есть</p>
+                <div class="modal-buttons" id="modalButtons">
+                    <button class="btn" id="btnYes">Да, есть</button>
+                    <button class="btn btn-danger" id="btnNo">Нет</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        const modal = document.getElementById('driverModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const modalButtons = document.getElementById('modalButtons');
+        const btnYes = document.getElementById('btnYes');
+        const btnNo = document.getElementById('btnNo');
+        const btnClose = document.getElementById('btnClose');
+        const orderButtons = document.querySelectorAll('.order-btn');
+
+        let currentCar = "Chevrolet Impala";
+
+        function allButtonsUsed() {
+            let allUsed = true;
+            orderButtons.forEach(function(btn) {
+                if (!btn.classList.contains('used')) {
+                    allUsed = false;
+                }
+            });
+            return allUsed;
+        }
+
+        function showModal(e) {
+            const button = e.target;
+
+            // Если все кнопки заблокированы — показываем отказ
+            if (allButtonsUsed()) {
+                modalTitle.innerText = "никуда не едем мабой для начала бумажка потом машинка";
+                modalText.innerText = "";
+                modalButtons.style.display = "none";
+                modal.classList.add('active');
+                setTimeout(function() {
+                    modal.classList.remove('active');
+                }, 3000);
+                return;
+            }
+
+            currentCar = button.dataset.car;
+            modalTitle.innerText = "Бронирование: " + currentCar;
+            modalText.innerText = "вассап мабой права есть";
+            modalButtons.style.display = "flex";
+            modal.classList.add('active');
+        }
+
+        orderButtons.forEach(function(button) {
+            button.addEventListener('click', showModal);
+        });
+
+        // Ответ "Да" — переходим на гифку
+        btnYes.addEventListener('click', function() {
+            modalTitle.innerText = "ты просто начальник";
+            modalText.innerText = "есть права есть машинка";
+            modalButtons.style.display = "none";
+
+            setTimeout(function() {
+                modal.classList.remove('active');
+                window.open("https://media1.tenor.com/m/lCHgKtq1HPYAAAAd/rick-roll-rick-astley.gif", "_blank");
+            }, 1500);
+        });
+
+        // Ответ "Нет" — блокируем ВСЕ кнопки "Арендовать"
+        btnNo.addEventListener('click', function() {
+            modalTitle.innerText = "нет мабой так не поедем";
+            modalText.innerText = "нету прав нету машинки";
+            modalButtons.style.display = "none";
+
+            orderButtons.forEach(function(btn) {
+                btn.classList.add('used');
+                btn.disabled = true;
+            });
+
+            setTimeout(function() {
+                modal.classList.remove('active');
+            }, 2500);
+        });
+
+        btnClose.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.form-group input').forEach(function(inp) {
+            inp.addEventListener('input', function() {
+                inp.classList.remove('error');
+            });
+        });
+
+        const form = document.getElementById('regForm');
+        const formMsg = document.getElementById('formMsg');
+        const username = document.getElementById('username');
+        const email = document.getElementById('useremail');
+        const telInput = document.getElementById('usertel');
+        const urlInput = document.getElementById('userurl');
+        const ageInput = document.getElementById('userage');
+        const fileInput = document.getElementById('doc-file');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formMsg.className = 'form-msg';
+            formMsg.innerText = '';
+            document.querySelectorAll('.form-group input').forEach(function(inp) {
+                inp.classList.remove('error');
+            });
+
+            if (username.value.trim().length < 3) {
+                username.classList.add('error');
+                formMsg.classList.add('error');
+                formMsg.innerText = 'Введите нормальное ФИО (минимум 3 символа)';
+                return;
+            }
+
+            if (!email.value.includes('@') || !email.value.includes('.')) {
+                email.classList.add('error');
+                formMsg.classList.add('error');
+                formMsg.innerText = 'Email какой-то неправильный';
+                return;
+            }
+
+            const telValue = telInput.value.replace(/[^0-9]/g, '');
+            if (telValue.length < 10) {
+                telInput.classList.add('error');
+                formMsg.classList.add('error');
+                formMsg.innerText = 'Телефон какой-то короткий, проверьте';
+                return;
+            }
+
+            if (urlInput.value.length > 0 && !urlInput.value.startsWith('http')) {
+                urlInput.classList.add('error');
+                formMsg.classList.add('error');
+                formMsg.innerText = 'Ссылка должна начинаться с http';
+                return;
+            }
+
+            const age = parseInt(ageInput.value);
+            if (isNaN(age) || age < 18) {
+                ageInput.classList.add('error');
+                formMsg.classList.add('error');
+                formMsg.innerText = 'До 18 лет машину не дадим, извините';
+                return;
+            }
+
+            if (fileInput.files.length > 0) {
+                const size = fileInput.files[0].size / 1024 / 1024;
+                if (size > 5) {
+                    formMsg.classList.add('error');
+                    formMsg.innerText = 'Файл слишком большой (максимум 5 МБ)';
+                    return;
+                }
+            }
+
+            formMsg.innerText = 'Документы отправлены на проверку! Скоро свяжемся.';
+            form.reset();
+        });
+    </script>
+</body>
+</html>
